@@ -11,14 +11,14 @@ spec:
     - title: Fill in some steps
       required:
         - name
+        - owner
       properties:
         name:
           title: Name
           type: string
           description: Unique name of the component
           ui:autofocus: true
-          ui:options:
-            rows: 5
+          ui:field: EntityNamePicker
         description:
           title: Description
           type: string
