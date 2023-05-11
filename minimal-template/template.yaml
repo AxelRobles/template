@@ -5,11 +5,10 @@ metadata:
   title: minimal-repo
   description: Create a new CRA website project
   tags:
-    - react
-    - cra
+    - java
 spec:
-  owner: web@example.com
-  type: website
+  owner: web@drift.com
+  type: service
   parameters:
     - title: Provide some simple information
       required:
