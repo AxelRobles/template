@@ -8,17 +8,28 @@ spec:
   type: service
   owner: user:guest
   parameters:
-    - title: Fill in some steps
+    - title: Provide some simple information
       required:
-        - name
+        - component_id
+        - owner
       properties:
-        name:
+        component_id:
           title: Name
           type: string
           description: Unique name of the component
-          ui:autofocus: true
+          ui:field: EntityNamePicker
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
           ui:options:
-            rows: 5
+            allowedKinds:
+              - Group
     - title: Choose a location
       required:
         - repoUrl
@@ -39,13 +50,16 @@ spec:
         copyWithoutRender:
             - .github/workflows/*
       values:
-          name: ${{ parameters.name }}
+          component_id: ${{ parameters.component_id }}
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
     - id: publish
       name: Publish to GitHub
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
+        description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: public
     - id: register
