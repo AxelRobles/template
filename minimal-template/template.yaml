@@ -35,7 +35,7 @@ spec:
       name: Fetch base template
       action: fetch:template
       input:
-        url: ./minimal-template/skeleton/
+        url: ./minimal-template/
         copyWithoutRender:
           - .github/workflows/*
     - id: publish
