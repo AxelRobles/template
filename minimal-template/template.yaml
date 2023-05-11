@@ -36,8 +36,6 @@ spec:
       action: fetch:template
       input:
         url: ./
-        copyWithoutRender:
-          - .github/workflows/*
     - id: publish
       name: Publish to GitHub
       action: publish:github
