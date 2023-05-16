@@ -65,6 +65,7 @@ spec:
           - github.com
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
+        protectDefaultBranch: true
 
     - id: register
       name: Register
