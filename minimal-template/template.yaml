@@ -69,8 +69,8 @@ spec:
         repoVisibility: public
         allowSquashMerge: true
         collaborators:
-          - user: AxelRobles
-            access: string
+          - user: axestours
+            access: admin
 
     - id: register
       name: Register
