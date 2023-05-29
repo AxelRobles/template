@@ -7,10 +7,10 @@ metadata:
   tags:
     - java
 spec:
-  type: service
   parameters:
     - title: Provide some simple information
       required:
+        - service
         - name
         - owner
       properties:
@@ -18,6 +18,15 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
+          enum:
+            - Service
+            - API
+            - Web page
+            - Data pipeline
+        service:
+          title: Type
+          type: string
+          description: Type of component
           ui:field: EntityNamePicker
         description:
           title: Description
@@ -31,6 +40,19 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        - title: Fill in some steps
+          properties:
+            Drift features:
+              title: Select features
+              type: array
+              items:
+                type: boolean
+                enum:
+                  - 'CircleCI setup'
+                  - 'Drift k8s app'
+                  - 'Atmos setup'
+              uniqueItems: true
+              ui:widget: checkboxes
     - title: Choose a location
       required:
         - repoUrl
